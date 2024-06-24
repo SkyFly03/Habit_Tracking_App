@@ -1,0 +1,58 @@
+@startuml
+package "7_OOFPP" {
+    package "habit" {
+        class Habit {
+            - name: str
+            - start_date: datetime
+            - log: list[datetime]
+            - periodicity: str
+            __init__(name: str, start_date: datetime, log: list[datetime], periodicity: str)
+            calculate_streak(): int
+            log_entry(date: datetime): void
+        }
+    }
+
+    package "db" {
+        class Database {
+            - db_file: str
+            - habits: list[Habit]
+            __init__(db_file: str)
+            load_db(): list[Habit]
+            save_db(): void
+            get_all_habits(): list[Habit]
+            get_habit(name: str): Habit
+            add_habit(habit: Habit): void
+            delete_habit(name: str): void
+            get_habits_by_periodicity(periodicity: str): list[Habit]
+            get_longest_streak_all_habits(): tuple[int, str]
+            get_longest_streak_for_habit(name: str): int
+        }
+    }
+
+    package "test" {
+        class TestHabit {
+            test_calculate_streak_daily(): void
+            test_calculate_streak_weekly(): void
+        }
+
+        class TestDatabase {
+            test_add_habit(): void
+            test_delete_habit(): void
+            test_get_habits_by_periodicity(): void
+            test_get_longest_streak_all_habits(): void
+            test_get_longest_streak_for_habit(): void
+            test_load_db(): void
+            test_save_db(): void
+        }
+    }
+
+    main.py -down-> Habit : uses
+    main.py -down-> Database : uses
+
+    TestHabit -down-> Habit : tests
+    TestDatabase -down-> Database : tests
+    TestDatabase -down-> Habit : tests
+
+    Database "1" *-down- "0..*" Habit : manages
+}
+@enduml
