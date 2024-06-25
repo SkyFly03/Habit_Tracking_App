@@ -94,4 +94,6 @@ To ensure that all functionalities of the Habit Tracking App are working correct
 By running these tests, you can verify that habit creation, logging, analysis, and deletion functionalities are working correctly. Regular testing helps maintain the quality and reliability of the application.
 
 ## Motivational Tip
+
 Building habits takes time and consistency. Don´t forget to celebrate small victories along the way, and don't be too hard on yourself if you miss a day/week. Keep using the Habit Tracking App to stay motivated and track your progress. Remember, it's better to have small goals, than no goals at all. You've got this!
+
