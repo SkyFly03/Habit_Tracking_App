@@ -33,6 +33,8 @@ package "7_OOFPP" {
         class TestHabit {
             test_calculate_streak_daily(): void
             test_calculate_streak_weekly(): void
+            test_log_entry_daily(): void
+            test_log_entry_weekly(): void
         }
 
         class TestDatabase {
@@ -44,14 +46,37 @@ package "7_OOFPP" {
             test_load_db(): void
             test_save_db(): void
         }
+
+        class TestAnalyze {
+            test_analyze_habits(): void
+            test_analyze_specific_habit(): void
+            test_list_habits_by_periodicity(): void
+            test_longest_streak_for_habit(): void
+        }
     }
 
-    main.py -down-> Habit : uses
-    main.py -down-> Database : uses
+    package "analyze" {
+        object analyze_habits {
+            analyze_habits(): void
+            analyze_specific_habit(db: Database): void
+            list_habits_by_periodicity(db: Database): void
+            longest_streak_for_habit(db: Database): void
+        }
+    }
+
+    package "main" {
+        object main_script {
+        }
+    }
+
+    main_script -down-> Habit : uses
+    main_script -down-> Database : uses
+    main_script -down-> analyze_habits : uses
 
     TestHabit -down-> Habit : tests
     TestDatabase -down-> Database : tests
     TestDatabase -down-> Habit : tests
+    TestAnalyze -down-> analyze_habits : tests
 
     Database "1" *-down- "0..*" Habit : manages
 }

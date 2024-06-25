@@ -3,10 +3,12 @@ This module contains the test cases for the Habit Tracking application.
 """
 
 import unittest
-import json  # Importing json module
+import json
 from datetime import datetime
 from habit import Habit
 from db import Database
+import analyze
+from unittest.mock import patch
 
 class TestHabit(unittest.TestCase):
     """
@@ -151,6 +153,66 @@ class TestDatabase(unittest.TestCase):
         self.db.save_db()
         new_db = Database(db_file="test_db.json")
         self.assertEqual(len(new_db.get_all_habits()), 1)
+
+class TestAnalyze(unittest.TestCase):
+    """
+    Test cases for the analyze module.
+    """
+
+    def setUp(self):
+        """
+        Sets up the test cases.
+        """
+        self.db = Database(db_file="test_db.json")
+        self.habit = Habit(
+            name="Test Analyze Habit",
+            start_date=datetime.strptime("2024-04-01", '%Y-%m-%d'),
+            log=[
+                datetime.strptime("2024-04-01 08:00", '%Y-%m-%d %H:%M'),
+                datetime.strptime("2024-04-02 08:00", '%Y-%m-%d %H:%M')
+            ],
+            periodicity="daily"
+        )
+        self.db.add_habit(self.habit)
+
+    def tearDown(self):
+        """
+        Cleans up after the test cases.
+        """
+        import os
+        os.remove("test_db.json")
+
+    @patch('questionary.select')
+    def test_analyze_habits(self, mock_select):
+        """
+        Tests the analyze_habits function.
+        """
+        mock_select.return_value.ask.return_value = "Test Analyze Habit"
+        analyze.analyze_habits()
+
+    @patch('questionary.select')
+    def test_analyze_specific_habit(self, mock_select):
+        """
+        Tests the analyze_specific_habit function.
+        """
+        mock_select.return_value.ask.return_value = "Test Analyze Habit"
+        analyze.analyze_specific_habit(self.db)
+
+    @patch('questionary.select')
+    def test_longest_streak_for_habit(self, mock_select):
+        """
+        Tests the longest_streak_for_habit function.
+        """
+        mock_select.return_value.ask.return_value = "Test Analyze Habit"
+        analyze.longest_streak_for_habit(self.db)
+
+    @patch('questionary.select')
+    def test_list_habits_by_periodicity(self, mock_select):
+        """
+        Tests the list_habits_by_periodicity function.
+        """
+        mock_select.return_value.ask.return_value = "daily"
+        analyze.list_habits_by_periodicity(self.db)
 
 if __name__ == "__main__":
     unittest.main()

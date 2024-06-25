@@ -30,8 +30,8 @@ To get started with the Habit Tracking App, follow these steps:
 
 2. **Create and activate a virtual environment (Windows):**
    ```sh
-        python -m venv venv
-        venv\Scripts\activate
+    python -m venv venv
+    venv\Scripts\activate
    ```
 
 3. **Install the dependencies:**
