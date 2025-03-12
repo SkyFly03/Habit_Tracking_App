@@ -7,7 +7,8 @@ The goal is for users to set their own goals and monitor their logged data, whic
 
 ## UML Class Diagram
 The diagram is a visual illustration of the Habit Tracking App´s structure, including its 5 classes (C) and how they interact:
-![image](https://github.com/user-attachments/assets/74bcbd91-79c4-4443-940b-a6477157ce87)
+![image](https://github.com/user-attachments/assets/38a3af7d-a9ba-4d90-8cf8-520a97bfefaa)
+
 
 
 ## Features
