@@ -1,6 +1,26 @@
 @startuml
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam arrowColor #444444
+skinparam classBorderColor #444444
+skinparam classBackgroundColor #F8F8F8
+skinparam classFontColor #222222
+skinparam stereotypeCBackgroundColor #A9DCDF
+skinparam linetype ortho
+skinparam roundCorner 15
+skinparam defaultTextAlignment center
+skinparam class {
+    BackgroundColor White
+    BorderColor #444444
+    FontColor #222222
+}
+
 package "7_OOFPP" {
-    package "habit" {
+
+    package "habit" #D6E9FE {
         class Habit {
             - name: str
             - start_date: datetime
@@ -12,7 +32,7 @@ package "7_OOFPP" {
         }
     }
 
-    package "db" {
+    package "db" #FFD699 {
         class Database {
             - db_file: str
             - habits: list[Habit]
@@ -29,7 +49,7 @@ package "7_OOFPP" {
         }
     }
 
-    package "test" {
+    package "test" #C3E6CB {
         class TestHabit {
             test_calculate_streak_daily(): void
             test_calculate_streak_weekly(): void
@@ -55,8 +75,8 @@ package "7_OOFPP" {
         }
     }
 
-    package "analyze" {
-        object analyze_habits {
+    package "analyze" #FAD7D7 {
+        class analyze_habits {
             analyze_habits(): void
             analyze_specific_habit(db: Database): void
             list_habits_by_periodicity(db: Database): void
@@ -64,20 +84,30 @@ package "7_OOFPP" {
         }
     }
 
-    package "main" {
-        object main_script {
-        }
+    package "main" #E6E6E6 {
+        class main_script {}
     }
 
-    main_script -down-> Habit : uses
-    main_script -down-> Database : uses
-    main_script -down-> analyze_habits : uses
+    ' Improve layout by defining structured top-to-bottom order with clear relationships
+    main_script -[hidden]-> Habit
+    main_script -[hidden]-> Database
+    main_script -[hidden]-> analyze_habits
+    Database -[hidden]-> Habit
+    TestHabit -[hidden]-> Habit
+    TestDatabase -[hidden]-> Database
+    TestAnalyze -[hidden]-> analyze_habits
 
-    TestHabit -down-> Habit : tests
-    TestDatabase -down-> Database : tests
-    TestDatabase -down-> Habit : tests
-    TestAnalyze -down-> analyze_habits : tests
+    ' Using corrected relationship notation
+    main_script --> Habit : uses
+    main_script --> Database : uses
+    main_script --> analyze_habits : uses
 
-    Database "1" *-down- "0..*" Habit : manages
+    TestHabit ..|> Habit : tests
+    TestDatabase ..|> Database : tests
+    TestDatabase ..|> Habit : tests
+    TestAnalyze ..|> analyze_habits : tests
+
+    Database "1" *-- "*" Habit : manages
 }
+
 @enduml
