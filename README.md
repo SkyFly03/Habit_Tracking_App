@@ -6,7 +6,9 @@ It allows users to define habits with specific periodicities (daily or weekly), 
 The goal is for users to set their own goals and monitor their logged data, which may boost motivation to change daily routines and create overall well-being in the long run.
 
 ## UML Class Diagram
-The diagram is a visual illustration of the Habit Tracking App´s structure, including its 5 classes (C) and how they interact:![UML Diagram](https://www.plantuml.org/plantuml/png/bPPDRvmm48Rl_0gBqswq6xMdIXoYHAggtf93Rr5a6JoxSTTy27iJqIh_FJQm1iCODZvmC8_VyRmpWuZkbMQrFkSogbXsOaSWyG_w-FZhwIac_oDYbjj_PQdGbrsxCicK8h_jzcZNhZqfM0u9KRgUxBVXA6VQlBLFBNAO8B8y9aGAfPylmCk4gA0M9HUPqCqy1gMY49hIZRl23eswmmBjPjfRJpnZCZjBGrFp2jXfiqs8ABJ765aAXQwRZH_Ge6-bu8xzYBgdxp9FvnR_P9gbJC7CPPxIWv2eqMsrL9zVMwCNtAQnndQI2EEKfpR7a8fYRz0ZNcvs7K5J9YNjRhAaOicM6cfcw1RqECPvpxNF7i5YSv1WYZGNHM_PtP2c3HrLVpFhXEK4P5aSGUc-CIQPwtCbuTbqYkt5UlNmeQoHkuyR3MyURJJcxVF7x69JQcawxMWp9K8sQ45n_XtWj7J0ZSEQyW069Fji_SG2iz4g3lqI3EerIf0ADydYaSMMkFhOq0mBrhb9nO7GdAAMFXHCDlzmHxjNgsbSE5L19WuYMqt03DPN7RxQ9dnM-YkEnwLC_qAcYP_an8Oh70WapzF4VScnOmiUh1uDMR5q4BSbPw90FB7RL6MrgCPV4KzYZEnv-Lxix_gVWuIS5QWWv4PuXPlKfQTRVFZ4JIFRLb6ESQ6Gs2iaBdYPbU0TExpbdMJyFIOttGaIVxkzlOcTUcu4J2cZZ-WU2cx_opu1)
+The diagram is a visual illustration of the Habit Tracking App´s structure, including its 5 classes (C) and how they interact:
+![image](https://github.com/user-attachments/assets/74bcbd91-79c4-4443-940b-a6477157ce87)
+
 
 ## Features
 The Habit Tracking App helps users to:
