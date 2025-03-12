@@ -17,7 +17,10 @@ The Habit Tracking App helps users to:
 - Log entries for each habit, marking them as completed on specific dates and times.
 - View all habits with details like name, start date, and periodicity.
 - Analyze habits to get insights like the longest streak and habits grouped by periodicity.
-- Delete habits that are no longer needed.
+- Delete habits that are no longer needed.  
+### Flow Chart Diagram
+![image](https://github.com/user-attachments/assets/cbdede76-6036-448d-b748-26467c986cc0)
+
 
 ## Installation
 To get started with the Habit Tracking App, follow these steps:
