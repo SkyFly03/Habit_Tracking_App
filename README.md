@@ -103,6 +103,13 @@ To ensure that all functionalities of the Habit Tracking App are working correct
 
 By running these tests, you can verify that habit creation, logging, analysis, and deletion functionalities are working correctly. Regular testing helps maintain the quality and reliability of the application.
 
-## Disclaimer
+---
+
+## Academic Content Disclaimer
 
 This project was created for educational purposes only as part of an academic assignment.
+
+Portions of this project, including written reports and documentation, were submitted as part of a degree requirement at IU International University of Applied Sciences.
+The academic content is the intellectual property of the author and may not be copied, redistributed, or repurposed—whether in part or in full—without explicit written permission.
+
+---
